@@ -1,61 +1,84 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
   <!-- Metadata Wajib & Konfigurasi Karakter -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- Ketentuan Metadata Tugas: title, description, og:title, og:description, og:image -->
   <title>Yulqi Aulia — Portfolio | AI Engineer & Informatics Engineering Student</title>
   <meta name="description" content="Website portofolio resmi Yulqi Aulia, mahasiswa Teknik Informatika UIN Sunan Gunung Djati Bandung dan AI Engineer dengan fokus pada AI/ML dan Machine Learning">
   <meta name="author" content="Yulqi Aulia">
   
   <!-- Open Graph Metadata untuk Media Sosial -->
   <meta property="og:title" content="Yulqi Aulia — Informatics Engineering Student Portfolio">
-  <meta property="og:description" content="Website portofolio resmi Yulqi Aulia, mahasiswa Teknik Informatika UIN Sunan GUnung DJati Bandung. Berisi profil diri, keahlian, riwayat pendidikan, dan proyek.">
+  <meta property="og:description" content="Website portofolio resmi Yulqi Aulia, mahasiswa Teknik Informatika UIN Sunan Gunung Djati Bandung. Berisi profil diri, keahlian, riwayat pendidikan, dan proyek.">
   <meta property="og:image" content="assets/profile.jpeg">
   <meta property="og:type" content="website">
 
   <!-- Link Favicon SVG -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234A1725'><path d='M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z'/></svg>">
 
-  <!-- File Stylesheet Eksternal -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS v4 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Konfigurasi Tema Kustom Tailwind v4 (Menyesuaikan Warna Asli Portofolio Kamu) -->
+  <style type="text/tailwindcss">
+    @theme {
+      --color-burgundy: #4A1725;
+      --color-wine: #6B2638;
+      --color-ivory: #F5F0E8;
+      --color-ivory-light: #FBF8F3;
+      --color-ivory-card: #EFE9DE;
+      --color-dark-brown: #211A1B;
+      --color-muted-gold: #B59A6A;
+      --color-text-muted: #5A4E50;
+      --color-border-custom: #E2D9CB;
+
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-script: 'Caveat', cursive;
+    }
+  </style>
 </head>
-<body>
+<body class="bg-ivory text-dark-brown font-sans antialiased overflow-x-hidden selection:bg-burgundy selection:text-ivory">
 
   <!-- Aksesibilitas: Tautan pintas untuk pengguna pembaca layar / keyboard -->
-  <a href="#main-content" class="skip-link">Loncat ke konten utama</a>
+  <a href="#main-content" class="absolute -top-16 left-5 bg-burgundy text-ivory px-4 py-2.5 rounded-lg font-semibold z-[9999] transition-all duration-200 focus:top-5 focus:outline-2 focus:outline-muted-gold">Loncat ke konten utama</a>
 
   <!-- ========================================================================
-       HEADER & NAVIGASI (Semantic: <header> dan <nav>)
+       HEADER & NAVIGASI
        ======================================================================== -->
-  <header class="site-header">
-    <div class="container header-container">
+  <header class="sticky top-0 z-[1000] bg-ivory/95 backdrop-blur-md border-b border-muted-gold/25 transition-all duration-300">
+    <div class="max-w-[1120px] mx-auto px-6 flex items-center justify-between h-[72px]">
       
-      <!-- Brand Logo dengan Ikon Sparkle Bintang -->
-      <a href="#home" class="brand-logo" aria-label="Beranda Yulqi Aulia">
-        <svg class="sparkle-icon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <!-- Brand Logo -->
+      <a href="#home" class="inline-flex items-center gap-2.5 font-display text-[1.25rem] font-semibold text-burgundy tracking-tight">
+        <svg class="text-muted-gold shrink-0 inline-flex" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M12 1.5L14.8 9.2L22.5 12L14.8 14.8L12 22.5L9.2 14.8L1.5 12L9.2 9.2L12 1.5Z"/>
         </svg>
         <span>Yulqi Aulia</span>
       </a>
 
       <!-- Menu Navigasi Utama -->
-      <nav id="navbar-menu" class="main-nav" aria-label="Navigasi Utama Situs">
-        <ul class="nav-list">
-          <li><a href="#home" class="nav-link">Home</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#education" class="nav-link">Experience</a></li>
-          <li><a href="#courses" class="nav-link">Mata Kuliah</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
+      <nav id="navbar-menu" class="hidden md:flex items-center">
+        <ul class="flex items-center list-none gap-8">
+          <li><a href="#home" class="nav-link text-[0.925rem] font-medium text-dark-brown relative py-1.5 hover:text-wine transition-colors after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-burgundy after:rounded-full hover:after:w-full after:transition-all after:duration-250">Home</a></li>
+          <li><a href="#about" class="nav-link text-[0.925rem] font-medium text-dark-brown relative py-1.5 hover:text-wine transition-colors after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-burgundy after:rounded-full hover:after:w-full after:transition-all after:duration-250">About</a></li>
+          <li><a href="#education" class="nav-link text-[0.925rem] font-medium text-dark-brown relative py-1.5 hover:text-wine transition-colors after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-burgundy after:rounded-full hover:after:w-full after:transition-all after:duration-250">Experience</a></li>
+          <li><a href="#courses" class="nav-link text-[0.925rem] font-medium text-dark-brown relative py-1.5 hover:text-wine transition-colors after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-burgundy after:rounded-full hover:after:w-full after:transition-all after:duration-250">Mata Kuliah</a></li>
+          <li><a href="#projects" class="nav-link text-[0.925rem] font-medium text-dark-brown relative py-1.5 hover:text-wine transition-colors after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-burgundy after:rounded-full hover:after:w-full after:transition-all after:duration-250">Projects</a></li>
+          <li><a href="#contact" class="nav-link text-[0.925rem] font-medium text-dark-brown relative py-1.5 hover:text-wine transition-colors after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-burgundy after:rounded-full hover:after:w-full after:transition-all after:duration-250">Contact</a></li>
         </ul>
       </nav>
 
-      <!-- Aksi Header: Mode Tema & Tombol Mobile Menu -->
-      <div class="header-actions">
-        <button type="button" class="theme-toggle" aria-label="Ganti mode tampilan" title="Mode Tampilan">
+      <!-- Aksi Header: Tombol Mobile Menu -->
+      <div class="flex items-center gap-4">
+        <button type="button" class="text-dark-brown p-2 rounded-full inline-flex items-center justify-center hover:text-muted-gold hover:bg-muted-gold/20 transition-all" aria-label="Ganti mode tampilan" title="Mode Tampilan">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -69,8 +92,8 @@
           </svg>
         </button>
 
-        <!-- Tombol Hamburger Responsif untuk Layar HP -->
-        <button type="button" id="menu-toggle-btn" class="mobile-menu-btn" aria-expanded="false" aria-controls="navbar-menu" aria-label="Buka menu navigasi">
+        <!-- Tombol Hamburger Responsif -->
+        <button type="button" id="menu-toggle-btn" class="md:hidden bg-transparent border-none p-2 text-burgundy cursor-pointer" aria-expanded="false" aria-controls="navbar-menu" aria-label="Buka menu navigasi">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -80,88 +103,84 @@
       </div>
 
     </div>
+
+    <!-- Dropdown Menu Mobile -->
+    <div id="mobile-dropdown" class="hidden md:hidden absolute top-[72px] left-0 w-full bg-ivory border-b border-border-custom p-6 shadow-xl">
+      <ul class="flex flex-col gap-4 list-none">
+        <li><a href="#home" class="mobile-nav-link text-dark-brown font-medium block py-1">Home</a></li>
+        <li><a href="#about" class="mobile-nav-link text-dark-brown font-medium block py-1">About</a></li>
+        <li><a href="#education" class="mobile-nav-link text-dark-brown font-medium block py-1">Experience</a></li>
+        <li><a href="#courses" class="mobile-nav-link text-dark-brown font-medium block py-1">Mata Kuliah</a></li>
+        <li><a href="#projects" class="mobile-nav-link text-dark-brown font-medium block py-1">Projects</a></li>
+        <li><a href="#contact" class="mobile-nav-link text-dark-brown font-medium block py-1">Contact</a></li>
+      </ul>
+    </div>
   </header>
 
   <!-- ========================================================================
-       KONTEN UTAMA (Semantic: <main>)
+       KONTEN UTAMA
        ======================================================================== -->
   <main id="main-content">
 
-    <!-- ----------------------------------------------------------------------
-         SECTION 1: HERO / BIODATA UTAMA (Semantic: <section>)
-         ---------------------------------------------------------------------- -->
-    <section id="home" class="hero-section" aria-label="Bagian Sambutan dan Profil Utama">
-      <div class="container">
-        <div class="hero-grid">
+    <!-- SECTION 1: HERO -->
+    <section id="home" class="py-[60px] md:py-[80px] relative overflow-hidden">
+      <div class="max-w-[1120px] mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] items-center gap-12">
 
           <!-- Kolom Teks Hero -->
-          <div class="hero-content">
-            <p class="hero-greeting">Hi, I'm</p>
-            <h1 class="hero-title">Yulqi Aulia</h1>
-            <p class="hero-subtitle">AI Engineer &amp; Informatics Engineering</p>
-            <p class="hero-bio">
+          <div class="relative z-10 text-center lg:text-left">
+            <p class="font-display italic text-[1.35rem] text-text-muted mb-1.5">Hi, I'm</p>
+            <h1 class="font-display text-[2.8rem] sm:text-[3.5rem] lg:text-[4rem] font-bold leading-[1.1] text-burgundy mb-3 tracking-tight">Yulqi Aulia</h1>
+            <p class="text-[1.15rem] font-semibold text-text-muted mb-5">AI Engineer &amp; Informatics Engineering</p>
+            <p class="text-[1.05rem] leading-[1.65] text-text-muted max-w-[480px] mb-8 mx-auto lg:mx-0">
               Building intelligent systems with purpose — because technology should make life better, not just easier.
             </p>
 
-            <div class="hero-actions">
+            <div class="flex flex-col items-center lg:items-start gap-6">
               <div>
-                <a href="#projects" class="btn btn-primary">
+                <a href="#projects" class="inline-flex items-center justify-center gap-2.5 text-[0.95rem] font-semibold px-6 py-3 rounded-full bg-burgundy text-ivory border border-burgundy shadow-[0_4px_14px_rgba(74,23,37,0.25)] hover:bg-wine hover:border-wine hover:-translate-y-0.5 hover:shadow-[0_6px_18px_rgba(107,38,56,0.35)] hover:text-white transition-all group">
                   <span>View My Projects</span>
-                  <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+                  <span class="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
                 </a>
               </div>
 
-              <!-- Tautan Media Sosial & Kontak -->
-              <div class="social-links" aria-label="Tautan media sosial Yulqi Aulia">
-                <a href="https://github.com/yulqiauliaa" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Profil GitHub Yulqi Aulia">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                  </svg>
+              <!-- Tautan Media Sosial -->
+              <div class="flex items-center gap-4" aria-label="Tautan media sosial Yulqi Aulia">
+                <a href="https://github.com/yulqiauliaa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-[38px] h-[38px] rounded-full text-dark-brown border border-dark-brown/15 hover:text-burgundy hover:border-burgundy hover:bg-burgundy/10 hover:-translate-y-0.5 transition-all" aria-label="Profil GitHub Yulqi Aulia">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                 </a>
-                <a href="https://linkedin.com/in/yulqiauliaa" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Profil LinkedIn Yulqi Aulia">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                    <rect x="2" y="9" width="4" height="12"></rect>
-                    <circle cx="4" cy="4" r="2"></circle>
-                  </svg>
+                <a href="https://linkedin.com/in/yulqiauliaa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-[38px] h-[38px] rounded-full text-dark-brown border border-dark-brown/15 hover:text-burgundy hover:border-burgundy hover:bg-burgundy/10 hover:-translate-y-0.5 transition-all" aria-label="Profil LinkedIn Yulqi Aulia">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                 </a>
-                <a href="https://instagram.com/yulqiauliaa/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Profil Instagram Yulqi Aulia">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                  </svg>
+                <a href="https://instagram.com/yulqiauliaa/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-[38px] h-[38px] rounded-full text-dark-brown border border-dark-brown/15 hover:text-burgundy hover:border-burgundy hover:bg-burgundy/10 hover:-translate-y-0.5 transition-all" aria-label="Profil Instagram Yulqi Aulia">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                 </a>
-                <a href="mailto:yulqiaulia7@gmail.com" class="social-link" aria-label="Kirim Email ke Yulqi Aulia">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                  </svg>
+                <a href="mailto:yulqiaulia7@gmail.com" class="inline-flex items-center justify-center w-[38px] h-[38px] rounded-full text-dark-brown border border-dark-brown/15 hover:text-burgundy hover:border-burgundy hover:bg-burgundy/10 hover:-translate-y-0.5 transition-all" aria-label="Kirim Email ke Yulqi Aulia">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                 </a>
               </div>
             </div>
           </div>
 
-          <!-- Kolom Visual Hero: Foto Diri dalam Bingkai Lengkung (Arch Frame) -->
-          <div class="hero-visual">
-            <div class="hero-arch-card">
-              <!-- Garis bingkai luar lengkung emas -->
-              <div class="arch-outer-line" aria-hidden="true"></div>
+          <!-- Kolom Visual Hero (Arch Frame) -->
+          <div class="relative flex justify-center items-center order-first lg:order-last">
+            <div class="relative w-[210px] sm:w-[290px] h-[270px] sm:h-[360px] group">
+              <!-- Garis bingkai luar -->
+              <div class="absolute -inset-3 border-[1.5px] border-muted-gold rounded-[160px_160px_0_0] pointer-events-none" aria-hidden="true"></div>
 
-              <!-- Kotak Foto Profil -->
-              <div class="arch-image-box">
-                <!-- Ketentuan Tugas: Foto diri dengan atribut alt yang deskriptif -->
-                <img src="assets/profile.jpeg" alt="Foto diri Yulqi Aulia berlatar hangat dengan pose natural menatap ke samping" class="hero-profile-img">
+              <!-- Foto Profil -->
+              <div class="w-full h-full rounded-[148px_148px_0_0] overflow-hidden shadow-xl bg-ivory-card border-[1.5px] border-muted-gold">
+                <img src="assets/profile.jpeg" alt="Foto diri Yulqi Aulia berlatar hangat dengan pose natural menatap ke samping" class="w-full h-full object-cover object-center transition-transform duration-600 group-hover:scale-104">
               </div>
 
-              <!-- Ikon Sparkle Bintang & Kutipan Tulisan Tangan -->
-              <svg class="sparkle-icon hero-sparkle-top" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <!-- Dekorasi Sparkle & Tulisan Tangan -->
+              <svg class="text-muted-gold absolute -top-4 -left-5 inline-flex" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M12 1.5L14.8 9.2L22.5 12L14.8 14.8L12 22.5L9.2 14.8L1.5 12L9.2 9.2L12 1.5Z"/>
               </svg>
-              <svg class="sparkle-icon hero-sparkle-bottom" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <svg class="text-muted-gold absolute bottom-5 -right-6 inline-flex" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M12 1.5L14.8 9.2L22.5 12L14.8 14.8L12 22.5L9.2 14.8L1.5 12L9.2 9.2L12 1.5Z"/>
               </svg>
-              <p class="hero-handwritten-quote">"Small steps,<br>&nbsp;big dreams."</p>
+              <p class="absolute top-[15px] -right-[55px] font-script text-[1.5px] sm:text-[1.5rem] text-burgundy rotate-[8deg] leading-[1.15] pointer-events-none whitespace-nowrap">"Small steps,<br>&nbsp;big dreams."</p>
             </div>
           </div>
 
@@ -169,80 +188,63 @@
       </div>
     </section>
 
-    <!-- ----------------------------------------------------------------------
-         SECTION 2: ABOUT ME & BIODATA LENGKAP (Warna Utama Deep Burgundy)
-         ---------------------------------------------------------------------- -->
-    <section id="about" class="about-section" aria-label="Tentang Saya">
-      <div class="container">
-        <div class="about-grid">
+    <!-- SECTION 2: ABOUT ME -->
+    <section id="about" class="bg-burgundy text-ivory py-[85px] relative" aria-label="Tentang Saya">
+      <div class="max-w-[1120px] mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-10 items-center">
 
-          <!-- Kolom Deskripsi Singkat Diri -->
-          <div class="about-text-col">
-            <h2 class="about-heading">About Me</h2>
-            <p class="about-lead">
+          <!-- Kolom Deskripsi -->
+          <div class="lg:pr-3">
+            <h2 class="font-display text-[2rem] sm:text-[2.5rem] font-bold text-ivory mb-5">About Me</h2>
+            <p class="text-[1rem] leading-[1.7] text-ivory/92 mb-7">
               I'm Yulqi, a 20-year-old Computer Informatics Engineering student with a deep interest in building intelligent systems, especially in AI/ML, and real-world problem solving. I'm passionate about learning, creating, and growing — both in tech and in life.
             </p>
-            <a href="#courses" class="btn btn-outline-burgundy">
+            <a href="#courses" class="inline-flex items-center justify-center gap-2.5 text-[0.95rem] font-semibold px-6 py-3 rounded-full bg-transparent text-ivory border border-muted-gold hover:bg-muted-gold/15 hover:border-ivory hover:text-white hover:-translate-y-0.5 transition-all group">
               <span>More About Me</span>
-              <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+              <span class="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
             </a>
           </div>
 
-          <!-- Kolom Informasi Biodata Ringkas -->
-          <div class="about-info-col">
+          <!-- Kolom Info Biodata -->
+          <div class="flex flex-col gap-[22px]">
             
-            <!-- Info 1: Pendidikan -->
-            <div class="about-info-item">
-              <div class="about-info-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                  <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-                </svg>
+            <div class="flex items-start gap-4">
+              <div class="text-muted-gold shrink-0 mt-0.5" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
               </div>
               <div>
-                <p class="about-info-title">Informatics Engineering Student</p>
-                <p class="about-info-desc">UIN Sunan Gunung Djati Bandung</p>
+                <p class="font-semibold text-[0.95rem] text-ivory mb-0.5">Informatics Engineering Student</p>
+                <p class="text-[0.875rem] text-ivory/78">UIN Sunan Gunung Djati Bandung</p>
               </div>
             </div>
 
-            <!-- Info 2: Fokus Keahlian -->
-            <div class="about-info-item">
-              <div class="about-info-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path>
-                  <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path>
-                </svg>
+            <div class="flex items-start gap-4">
+              <div class="text-muted-gold shrink-0 mt-0.5" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path></svg>
               </div>
               <div>
-                <p class="about-info-title">AI Engineer</p>
-                <p class="about-info-desc">Focus on AI/ML/DL &amp; LLMs</p>
+                <p class="font-semibold text-[0.95rem] text-ivory mb-0.5">AI Engineer</p>
+                <p class="text-[0.875rem] text-ivory/78">Focus on AI/ML/DL &amp; LLMs</p>
               </div>
             </div>
 
-            <!-- Info 3: Domisili -->
-            <div class="about-info-item">
-              <div class="about-info-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
+            <div class="flex items-start gap-4">
+              <div class="text-muted-gold shrink-0 mt-0.5" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
               </div>
               <div>
-                <p class="about-info-title">Based in</p>
-                <p class="about-info-desc">Bandung, Indonesia</p>
+                <p class="font-semibold text-[0.95rem] text-ivory mb-0.5">Based in</p>
+                <p class="text-[0.875rem] text-ivory/78">Bandung, Indonesia</p>
               </div>
             </div>
 
-            <!-- Info 4: Karakteristik -->
-            <div class="about-info-item">
-              <div class="about-info-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"/>
-                </svg>
+            <div class="flex items-start gap-4">
+              <div class="text-muted-gold shrink-0 mt-0.5" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"/></svg>
               </div>
               <div>
-                <p class="about-info-title">INTJ &bull; Taurus</p>
-                <p class="about-info-desc">Dreamer, overthinker, problem solver</p>
+                <p class="font-semibold text-[0.95rem] text-ivory mb-0.5">INTJ &bull; Taurus</p>
+                <p class="text-[0.875rem] text-ivory/78">Dreamer, overthinker, problem solver</p>
               </div>
             </div>
 
@@ -252,47 +254,44 @@
       </div>
     </section>
 
-    <!-- ----------------------------------------------------------------------
-         SECTION 3: RIWAYAT PENDIDIKAN (Semantic: <section>)
-         ---------------------------------------------------------------------- -->
-    <section id="education" class="education-section" aria-label="Riwayat Pendidikan">
-      <div class="container">
+    <!-- SECTION 3: RIWAYAT PENDIDIKAN -->
+    <section id="education" class="py-[20px] md:pt-[20px] md:pb-[80px] bg-ivory" aria-label="Riwayat Pendidikan">
+      <div class="max-w-[1120px] mx-auto px-6">
         
-        <div class="section-header">
-          <span class="section-label">EDUCATION</span>
-          <h2 class="section-title">My Academic Journey</h2>
+        <div class="mb-10">
+          <span class="block text-[0.8rem] font-bold uppercase tracking-[0.12em] text-muted-gold mb-1.5">EDUCATION</span>
+          <h2 class="font-display text-[1.85rem] sm:text-[2.3rem] font-bold text-burgundy tracking-tight">My Academic Journey</h2>
         </div>
 
-        <!-- Garis Waktu Riwayat Pendidikan -->
-        <div class="education-timeline">
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-center gap-6 bg-ivory-light border border-border-custom rounded-[20px] p-8 md:p-10 shadow-sm">
           
-          <!-- Pendidikan 1: Perguruan Tinggi (UIN) -->
-          <div class="timeline-item">
-            <div class="timeline-badge">
-              <img src="assets/logo_uin.webp" alt="Logo UIN Sunan Gunung Djati Bandung">
+          <!-- Pendidikan 1 -->
+          <div class="flex items-center gap-5">
+            <div class="w-[58px] h-[58px] rounded-full bg-white border-2 border-border-custom flex items-center justify-center shadow-sm overflow-hidden shrink-0">
+              <img src="assets/logo_uin.webp" alt="Logo UIN Sunan Gunung Djati Bandung" class="w-[38px] h-[38px] object-contain">
             </div>
             <div>
-              <span class="timeline-period">2024 &ndash; Now</span>
-              <h3 class="timeline-institution">UIN Sunan Gunung Djati Bandung</h3>
-              <p class="timeline-degree">Informatics Engineering</p>
+              <span class="inline-block text-[0.8rem] font-bold text-muted-gold mb-1">2024 &ndash; Now</span>
+              <h3 class="font-display text-[1.15rem] font-bold text-burgundy mb-0.5">UIN Sunan Gunung Djati Bandung</h3>
+              <p class="text-[0.9rem] text-text-muted">Informatics Engineering</p>
             </div>
           </div>
 
-          <!-- Garis Penghubung Garis Waktu dengan Titik Node -->
-          <div class="timeline-divider" aria-hidden="true">
-            <div class="timeline-line"></div>
-            <div class="timeline-node"></div>
+          <!-- Divider -->
+          <div class="hidden lg:flex items-center relative w-[120px]" aria-hidden="true">
+            <div class="w-full h-[2px] bg-border-custom"></div>
+            <div class="absolute right-0 w-2 h-2 rounded-full bg-muted-gold"></div>
           </div>
 
-          <!-- Pendidikan 2: Sekolah Menengah Atas  -->
-          <div class="timeline-item">
-            <div class="timeline-badge">
-              <img src="assets/logo_pbrm.jpg" alt="Logo MAS Baitur Tohmah Muhammadiyah Garut">
+          <!-- Pendidikan 2 -->
+          <div class="flex items-center gap-5">
+            <div class="w-[58px] h-[58px] rounded-full bg-white border-2 border-border-custom flex items-center justify-center shadow-sm overflow-hidden shrink-0">
+              <img src="assets/logo_pbrm.jpg" alt="Logo MAS Baitur Tohmah Muhammadiyah Garut" class="w-[38px] h-[38px] object-contain">
             </div>
             <div>
-              <span class="timeline-period">2022 &ndash; 2024</span>
-              <h3 class="timeline-institution">MAS Baitur Rohmah Muhammadiyah</h3>
-              <p class="timeline-degree">Science</p>
+              <span class="inline-block text-[0.8rem] font-bold text-muted-gold mb-1">2022 &ndash; 2024</span>
+              <h3 class="font-display text-[1.15rem] font-bold text-burgundy mb-0.5">MAS Baitur Rohmah Muhammadiyah</h3>
+              <p class="text-[0.9rem] text-text-muted">Science</p>
             </div>
           </div>
 
@@ -301,104 +300,102 @@
       </div>
     </section>
 
-        <!-- ----------------------------------------------------------------------
-         SECTION 5: TABEL MATA KULIAH SEMESTER INI (KETENTUAN WAJIB TUGAS)
-         ---------------------------------------------------------------------- -->
-    <section id="courses" class="courses-section" aria-label="Tabel Mata Kuliah Semester Ini">
-      <div class="container">
+    <!-- SECTION 4: TABEL MATA KULIAH -->
+    <section id="courses" class="py-20 bg-ivory-card border-t border-b border-border-custom" aria-label="Tabel Mata Kuliah Semester Ini">
+      <div class="max-w-[1120px] mx-auto px-6">
         
-        <div class="section-header">
-          <span class="section-label">AKADEMIK &amp; JADWAL</span>
-          <h2 class="section-title">Mata Kuliah Semester Ini</h2>
+        <div class="mb-10">
+          <span class="block text-[0.8rem] font-bold uppercase tracking-[0.12em] text-muted-gold mb-1.5">AKADEMIK &amp; JADWAL</span>
+          <h2 class="font-display text-[1.85rem] sm:text-[2.3rem] font-bold text-burgundy tracking-tight">Mata Kuliah Semester Ini</h2>
         </div>
 
-        <p class="courses-intro">
+        <p class="max-w-[680px] text-[0.95rem] text-text-muted -mt-4 mb-8">
           Berikut adalah rincian mata kuliah yang sedang saya tempuh pada semester ganjil tahun ajaran berjalan di Program Studi Teknik Informatika, UIN Sunan Gunung Djati Bandung:
         </p>
 
-        <!-- Tabel Semantik HTML5 Responsif -->
-        <div class="table-responsive">
-          <table class="courses-table">
-            <caption>Daftar Rencana Studi &amp; Jadwal Perkuliahan Semester Ini (Teknik Informatika UIN)</caption>
-            <thead>
+        <!-- Tabel Responsif -->
+        <div class="w-full overflow-x-auto rounded-xl shadow-md border border-border-custom bg-white">
+          <table class="w-full border-collapse text-left text-[0.925rem]">
+            <caption class="caption-top text-[0.85rem] font-semibold text-text-muted text-left p-3 px-4.5 bg-ivory-light border-b border-border-custom">Daftar Rencana Studi &amp; Jadwal Perkuliahan Semester Ini (Teknik Informatika UIN)</caption>
+            <thead class="bg-burgundy text-ivory">
               <tr>
-                <th scope="col">No.</th>
-                <th scope="col">Nama Mata Kuliah</th>
-                <th scope="col">SKS</th>
-                <th scope="col">Jadwal Kuliah</th>
-                <th scope="col">Dosen Pengampu</th>
+                <th scope="col" class="p-3.5 px-4.5 font-semibold tracking-wider text-[0.85rem] uppercase border-b-2 border-muted-gold">No.</th>
+                <th scope="col" class="p-3.5 px-4.5 font-semibold tracking-wider text-[0.85rem] uppercase border-b-2 border-muted-gold">Nama Mata Kuliah</th>
+                <th scope="col" class="p-3.5 px-4.5 font-semibold tracking-wider text-[0.85rem] uppercase border-b-2 border-muted-gold">SKS</th>
+                <th scope="col" class="p-3.5 px-4.5 font-semibold tracking-wider text-[0.85rem] uppercase border-b-2 border-muted-gold">Jadwal Kuliah</th>
+                <th scope="col" class="p-3.5 px-4.5 font-semibold tracking-wider text-[0.85rem] uppercase border-b-2 border-muted-gold">Dosen Pengampu</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td class="course-name">Manajemen Basis Data</td>
-                <td><span class="sks-pill">3</span></td>
-                <td>Senin, 12:40 &ndash; 13:10 WIB</td>
-                <td>Wildan Budiawan Zulfikar, S.T., M.Kom.</td>
+            <tbody class="divide-y divide-border-custom">
+              <tr class="even:bg-ivory/45 hover:bg-muted-gold/12 transition-colors">
+                <th scope="row" class="p-3.5 px-4.5 font-normal">1</th>
+                <td class="p-3.5 px-4.5 font-semibold text-burgundy">Manajemen Basis Data</td>
+                <td class="p-3.5 px-4.5"><span class="inline-block text-center font-bold bg-muted-gold/20 text-burgundy px-2.5 py-0.5 rounded-full text-xs">3</span></td>
+                <td class="p-3.5 px-4.5">Senin, 12:40 &ndash; 13:10 WIB</td>
+                <td class="p-3.5 px-4.5">Wildan Budiawan Zulfikar, S.T., M.Kom.</td>
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td class="course-name">Manajemen Proyek Perangkat Lunak</td>
-                <td><span class="sks-pill">3</span></td>
-                <td>Senin, 15:30 &ndash; 18:00 WIB</td>
-                <td>Agung Wahana, S.E., M.T.</td>
+              <tr class="even:bg-ivory/45 hover:bg-muted-gold/12 transition-colors">
+                <th scope="row" class="p-3.5 px-4.5 font-normal">2</th>
+                <td class="p-3.5 px-4.5 font-semibold text-burgundy">Manajemen Proyek Perangkat Lunak</td>
+                <td class="p-3.5 px-4.5"><span class="inline-block text-center font-bold bg-muted-gold/20 text-burgundy px-2.5 py-0.5 rounded-full text-xs">3</span></td>
+                <td class="p-3.5 px-4.5">Senin, 15:30 &ndash; 18:00 WIB</td>
+                <td class="p-3.5 px-4.5">Agung Wahana, S.E., M.T.</td>
               </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td class="course-name">ICT dan Islam</td>
-                <td><span class="sks-pill">2</span></td>
-                <td>Selasa, 07:00 &ndash; 08:40 WIB</td>
-                <td>Maulana Hasan M, M.Kom.</td>
+              <tr class="even:bg-ivory/45 hover:bg-muted-gold/12 transition-colors">
+                <th scope="row" class="p-3.5 px-4.5 font-normal">3</th>
+                <td class="p-3.5 px-4.5 font-semibold text-burgundy">ICT dan Islam</td>
+                <td class="p-3.5 px-4.5"><span class="inline-block text-center font-bold bg-muted-gold/20 text-burgundy px-2.5 py-0.5 rounded-full text-xs">2</span></td>
+                <td class="p-3.5 px-4.5">Selasa, 07:00 &ndash; 08:40 WIB</td>
+                <td class="p-3.5 px-4.5">Maulana Hasan M, M.Kom.</td>
               </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td class="course-name">Kewirausahaan & Etika Bisnis</td>
-                <td><span class="sks-pill">2</span></td>
-                <td>Selasa, 10:20 &ndash; 12:00 WIB</td>
-                <td>Adam Faroqi, S.T., M.T.</td>
+              <tr class="even:bg-ivory/45 hover:bg-muted-gold/12 transition-colors">
+                <th scope="row" class="p-3.5 px-4.5 font-normal">4</th>
+                <td class="p-3.5 px-4.5 font-semibold text-burgundy">Kewirausahaan & Etika Bisnis</td>
+                <td class="p-3.5 px-4.5"><span class="inline-block text-center font-bold bg-muted-gold/20 text-burgundy px-2.5 py-0.5 rounded-full text-xs">2</span></td>
+                <td class="p-3.5 px-4.5">Selasa, 10:20 &ndash; 12:00 WIB</td>
+                <td class="p-3.5 px-4.5">Adam Faroqi, S.T., M.T.</td>
               </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td class="course-name">Pengembangan Aplikasi Mobile</td>
-                <td><span class="sks-pill">3</span></td>
-                <td>Selasa, 15:30 &ndash; 18:00 WIB</td>
-                <td>H.Aldy Rialdy Atmaja, M.T.</td>
+              <tr class="even:bg-ivory/45 hover:bg-muted-gold/12 transition-colors">
+                <th scope="row" class="p-3.5 px-4.5 font-normal">5</th>
+                <td class="p-3.5 px-4.5 font-semibold text-burgundy">Pengembangan Aplikasi Mobile</td>
+                <td class="p-3.5 px-4.5"><span class="inline-block text-center font-bold bg-muted-gold/20 text-burgundy px-2.5 py-0.5 rounded-full text-xs">3</span></td>
+                <td class="p-3.5 px-4.5">Selasa, 15:30 &ndash; 18:00 WIB</td>
+                <td class="p-3.5 px-4.5">H.Aldy Rialdy Atmaja, M.T.</td>
               </tr>
-              <tr>
-                <th scope="row">6</th>
-                <td class="course-name">Jaringan Komputer</td>
-                <td><span class="sks-pill">3</span></td>
-                <td>Rabu, 07:00 &ndash; 09.30 WIB</td>
-                <td>Cecep Nurul Alam, M.T.</td>
+              <tr class="even:bg-ivory/45 hover:bg-muted-gold/12 transition-colors">
+                <th scope="row" class="p-3.5 px-4.5 font-normal">6</th>
+                <td class="p-3.5 px-4.5 font-semibold text-burgundy">Jaringan Komputer</td>
+                <td class="p-3.5 px-4.5"><span class="inline-block text-center font-bold bg-muted-gold/20 text-burgundy px-2.5 py-0.5 rounded-full text-xs">3</span></td>
+                <td class="p-3.5 px-4.5">Rabu, 07:00 &ndash; 09.30 WIB</td>
+                <td class="p-3.5 px-4.5">Cecep Nurul Alam, M.T.</td>
               </tr>
-               <tr>
-                <th scope="row">7</th>
-                <td class="course-name">Sosio-Informatika dan Profesionalisme</td>
-                <td><span class="sks-pill">2</span></td>
-                <td>Rabu, 12:40 &ndash; 14:20 WIB</td>
-                <td>Dr. Yana Aditia Gerhana, S.T, M.Kom.</td>
+               <tr class="even:bg-ivory/45 hover:bg-muted-gold/12 transition-colors">
+                <th scope="row" class="p-3.5 px-4.5 font-normal">7</th>
+                <td class="p-3.5 px-4.5 font-semibold text-burgundy">Sosio-Informatika dan Profesionalisme</td>
+                <td class="p-3.5 px-4.5"><span class="inline-block text-center font-bold bg-muted-gold/20 text-burgundy px-2.5 py-0.5 rounded-full text-xs">2</span></td>
+                <td class="p-3.5 px-4.5">Rabu, 12:40 &ndash; 14:20 WIB</td>
+                <td class="p-3.5 px-4.5">Dr. Yana Aditia Gerhana, S.T, M.Kom.</td>
               </tr>
-              <tr>
-                <th scope="row">8</th>
-                <td class="course-name">Pengembangan Aplikasi Web</td>
-                <td><span class="sks-pill">3</span></td>
-                <td>Jumat, 07:00 &ndash; 09:30 WIB</td>
-                <td>Muhammad Deden Firdaus, S.T, M.Kom.</td>
+              <tr class="even:bg-ivory/45 hover:bg-muted-gold/12 transition-colors">
+                <th scope="row" class="p-3.5 px-4.5 font-normal">8</th>
+                <td class="p-3.5 px-4.5 font-semibold text-burgundy">Pengembangan Aplikasi Web</td>
+                <td class="p-3.5 px-4.5"><span class="inline-block text-center font-bold bg-muted-gold/20 text-burgundy px-2.5 py-0.5 rounded-full text-xs">3</span></td>
+                <td class="p-3.5 px-4.5">Jumat, 07:00 &ndash; 09:30 WIB</td>
+                <td class="p-3.5 px-4.5">Muhammad Deden Firdaus, S.T, M.Kom.</td>
               </tr>
-              <tr>
-                <th scope="row">9</th>
-                <td class="course-name">Intelegensia Buatan</td>
-                <td><span class="sks-pill">3</span></td>
-                <td>Jumat, 12:40 &ndash; 15:10 WIB</td>
-                <td>Tim Dosen Pengampu ITB</td>
+              <tr class="even:bg-ivory/45 hover:bg-muted-gold/12 transition-colors">
+                <th scope="row" class="p-3.5 px-4.5 font-normal">9</th>
+                <td class="p-3.5 px-4.5 font-semibold text-burgundy">Intelegensia Buatan</td>
+                <td class="p-3.5 px-4.5"><span class="inline-block text-center font-bold bg-muted-gold/20 text-burgundy px-2.5 py-0.5 rounded-full text-xs">3</span></td>
+                <td class="p-3.5 px-4.5">Jumat, 12:40 &ndash; 15:10 WIB</td>
+                <td class="p-3.5 px-4.5">Tim Dosen Pengampu ITB</td>
               </tr>
             </tbody>
-            <tfoot>
+            <tfoot class="bg-ivory-light font-bold text-burgundy border-t-2 border-border-custom">
               <tr>
-                <td colspan="3" style="text-align: right;">Total Beban SKS Semester Ini:</td>
-                <td><span class="sks-pill" style="background-color: var(--color-burgundy); color: var(--color-ivory);">24 SKS</span></td>
-                <td colspan="2">Status: Aktif Mengikuti Perkuliahan</td>
+                <td colspan="3" class="p-3.5 px-4.5 text-right text-[0.95rem]">Total Beban SKS Semester Ini:</td>
+                <td class="p-3.5 px-4.5"><span class="inline-block text-center font-bold bg-burgundy text-ivory px-2.5 py-0.5 rounded-full text-xs">24 SKS</span></td>
+                <td colspan="2" class="p-3.5 px-4.5 font-normal text-dark-brown">Status: Aktif Mengikuti Perkuliahan</td>
               </tr>
             </tfoot>
           </table>
@@ -407,75 +404,72 @@
       </div>
     </section>
 
-    <!-- ----------------------------------------------------------------------
-         SECTION 6: PROYEK PILIHAN / FEATURED PROJECTS (Semantic: <section>)
-         ---------------------------------------------------------------------- -->
-    <section id="projects" class="projects-section" aria-label="Proyek Pilihan">
-      <div class="container">
+    <!-- SECTION 5: FEATURED PROJECTS -->
+    <section id="projects" class="py-20 bg-ivory" aria-label="Proyek Pilihan">
+      <div class="max-w-[1120px] mx-auto px-6">
         
-        <!-- Header Proyek -->
-        <div class="section-header section-header-flex">
+        <div class="flex items-end justify-between flex-wrap gap-4 mb-10">
           <div>
-            <span class="section-label">PROJECTS</span>
-            <h2 class="section-title">Featured Projects</h2>
+            <span class="block text-[0.8rem] font-bold uppercase tracking-[0.12em] text-muted-gold mb-1.5">PROJECTS</span>
+            <h2 class="font-display text-[1.85rem] sm:text-[2.3rem] font-bold text-burgundy tracking-tight">Featured Projects</h2>
           </div>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="section-subtitle" style="display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--color-burgundy);">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-semibold text-burgundy hover:text-wine transition-colors text-[0.95rem]">
             <span>View All Projects</span>
             <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
 
-        <!-- Grid Tiga Proyek -->
-        <div class="projects-grid">
+        <!-- Grid Proyek -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           
-          <!-- Kartu Proyek 1: EmpathAI -->
-          <article class="project-card">
-            <div class="project-thumb-frame">
-              <img src="assets/proj1.jpg" alt="Antarmuka proyek EmpathAI pada laptop di atas meja belajar" class="project-thumb-img">
+          <!-- Proyek 1 -->
+          <article class="bg-ivory-light border border-border-custom rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-muted-gold group">
+            <div class="w-full h-40 overflow-hidden bg-dark-brown">
+              <img src="assets/proj1.jpg" alt="Antarmuka proyek EmpathAI pada laptop di atas meja belajar" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
             </div>
-            <div class="project-body">
-              <span class="project-category">AI / ML</span>
-              <h3 class="project-title">EmpathAI</h3>
-              <p class="project-desc">
+            <div class="p-5 flex flex-col grow">
+              <span class="inline-block text-[0.75rem] font-bold uppercase tracking-[0.08em] text-muted-gold mb-1.5">AI / ML</span>
+              <h3 class="font-display text-[1.25rem] font-bold text-burgundy mb-2">EmpathAI</h3>
+              <p class="text-[0.875rem] leading-[1.55] text-text-muted mb-4.5 grow">
                 Mental health chatbot with context-aware system prompt, built with React, Express, FastAPI, TensorFlow, and Gemini API.
               </p>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-[0.875rem] font-semibold text-burgundy hover:text-wine hover:gap-2.5 transition-all mt-auto">
                 <span>View Project</span>
                 <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
           </article>
 
-          <!-- Kartu Proyek 2: EventRadar -->
-          <article class="project-card">
-            <div class="project-thumb-frame">
-              <img src="assets/proj2.jpg" alt="Antarmuka aplikasi EventRadar untuk rekomendasi kegiatan interaktif" class="project-thumb-img">
+          <!-- Proyek 2 -->
+          <article class="bg-ivory-light border border-border-custom rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-muted-gold group">
+            <div class="w-full h-40 overflow-hidden bg-dark-brown">
+              <img src="assets/proj2.jpg" alt="Antarmuka aplikasi EventRadar untuk rekomendasi kegiatan interaktif" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
             </div>
-            <div class="project-body">
-              <span class="project-category">Full-stack</span>
-              <h3 class="project-title">EventRadar</h3>
-              <p class="project-desc">
+            <div class="p-5 flex flex-col grow">
+              <span class="inline-block text-[0.75rem] font-bold uppercase tracking-[0.08em] text-muted-gold mb-1.5">Full-stack</span>
+              <h3 class="font-display text-[1.25rem] font-bold text-burgundy mb-2">EventRadar</h3>
+              <p class="text-[0.875rem] leading-[1.55] text-text-muted mb-4.5 grow">
                 Event recommendation platform with personalized suggestions and real-time data.
               </p>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-[0.875rem] font-semibold text-burgundy hover:text-wine hover:gap-2.5 transition-all mt-auto">
                 <span>View Project</span>
                 <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
           </article>
 
-          <!-- Kartu Proyek 3: Other Projects -->
-          <article class="project-card">
-            <div class="project-thumb-frame">
-              <img src="assets/proj3.jpg" alt="Editor kode menampilkan baris algoritma dan implementasi proyek sistem cerdas" class="project-thumb-img">
+          <!-- Proyek 3 -->
+          <article class="bg-ivory-light border border-border-custom rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-muted-gold group">
+            <div class="w-full h-40 overflow-hidden bg-dark-brown">
+              <img src="assets/proj3.jpg" alt="Editor kode menampilkan baris algoritma dan implementasi proyek sistem cerdas" class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105">
             </div>
-            <div class="project-body">
-              <span class="project-category">Various</span>
-              <h3 class="project-title">Other Projects</h3>
-              <p class="project-desc">
+            <div class="p-5 flex flex-col grow">
+              <span class="inline-block text-[0.75rem] font-bold uppercase tracking-[0.08em] text-muted-gold mb-1.5">Various</span>
+              <h3 class="font-display text-[1.25rem] font-bold text-burgundy mb-2">Other Projects</h3>
+              <p class="text-[0.875rem] leading-[1.55] text-text-muted mb-4.5 grow">
                 A collection of smaller projects, experiments, and learning logs.
               </p>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-[0.875rem] font-semibold text-burgundy hover:text-wine hover:gap-2.5 transition-all mt-auto">
                 <span>View Projects</span>
                 <span aria-hidden="true">&rarr;</span>
               </a>
@@ -490,49 +484,36 @@
   </main>
 
   <!-- ========================================================================
-       FOOTER (Semantic: <footer>)
+       FOOTER
        ======================================================================== -->
-  <footer id="contact" class="site-footer">
-    <div class="container">
+  <footer id="contact" class="bg-burgundy text-ivory py-[60px] pb-10 relative overflow-hidden">
+    <div class="max-w-[1120px] mx-auto px-6">
       
-      <div class="footer-top">
+      <div class="flex items-center justify-between flex-wrap gap-8 pb-10 border-b border-muted-gold/25">
         
-        <!-- Kutipan Inspiratif & Ikon Dekoratif -->
-        <div class="footer-quote-wrap">
-          <p class="footer-quote">"Progress, not perfection."</p>
-          <svg class="sparkle-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <!-- Kutipan Inspiratif -->
+        <div class="flex items-center gap-4">
+          <p class="font-script text-[1.6rem] text-ivory tracking-wide">"Progress, not perfection."</p>
+          <svg class="text-muted-gold inline-flex" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M12 1.5L14.8 9.2L22.5 12L14.8 14.8L12 22.5L9.2 14.8L1.5 12L9.2 9.2L12 1.5Z"/>
           </svg>
         </div>
 
-        <!-- Bagian Let's Connect & Ikon Sosial -->
-        <div class="footer-connect">
-          <p class="footer-connect-title">Let's connect</p>
-          <div class="footer-socials" aria-label="Kontak dan jejaring sosial Yulqi Aulia">
-            <a href="https://github.com/yulqiauliaa/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Kunjungi GitHub Yulqi Aulia">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-              </svg>
+        <!-- Bagian Let's Connect -->
+        <div class="flex flex-col gap-2.5">
+          <p class="text-[0.85rem] font-semibold text-ivory tracking-wider">Let's connect</p>
+          <div class="flex items-center gap-3" aria-label="Kontak dan jejaring sosial Yulqi Aulia">
+            <a href="https://github.com/yulqiauliaa/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-[38px] h-[38px] rounded-full text-ivory border border-ivory/25 hover:bg-wine hover:border-muted-gold hover:text-white hover:-translate-y-0.5 transition-all" aria-label="Kunjungi GitHub Yulqi Aulia">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
             </a>
-            <a href="https://linkedin.com/in/yulqiauliaa" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Kunjungi LinkedIn Yulqi Aulia">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect x="2" y="9" width="4" height="12"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
+            <a href="https://linkedin.com/in/yulqiauliaa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-[38px] h-[38px] rounded-full text-ivory border border-ivory/25 hover:bg-wine hover:border-muted-gold hover:text-white hover:-translate-y-0.5 transition-all" aria-label="Kunjungi LinkedIn Yulqi Aulia">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
             </a>
-            <a href="https://instagram.com/yulqiauliaa" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Kunjungi Instagram Yulqi Aulia">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
+            <a href="https://instagram.com/yulqiauliaa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-[38px] h-[38px] rounded-full text-ivory border border-ivory/25 hover:bg-wine hover:border-muted-gold hover:text-white hover:-translate-y-0.5 transition-all" aria-label="Kunjungi Instagram Yulqi Aulia">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </a>
-            <a href="mailto:yulqiaulia7@gmail.com" class="footer-social-link" aria-label="Kirim surel ke Yulqi Aulia">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
+            <a href="mailto:yulqiaulia7@gmail.com" class="inline-flex items-center justify-center w-[38px] h-[38px] rounded-full text-ivory border border-ivory/25 hover:bg-wine hover:border-muted-gold hover:text-white hover:-translate-y-0.5 transition-all" aria-label="Kirim surel ke Yulqi Aulia">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
             </a>
           </div>
         </div>
@@ -542,50 +523,26 @@
     </div>
   </footer>
 
-  <!-- Skrip JavaScript Sederhana untuk Menu Responsif & Interaktivitas Halus -->
+  <!-- Script Interaktivitas JavaScript -->
   <script>
     // Toggle Menu Navigasi Mobile
     const menuBtn = document.getElementById('menu-toggle-btn');
-    const mainNav = document.getElementById('navbar-menu');
+    const mobileDropdown = document.getElementById('mobile-dropdown');
 
-    if (menuBtn && mainNav) {
+    if (menuBtn && mobileDropdown) {
       menuBtn.addEventListener('click', () => {
-        const isOpen = mainNav.classList.toggle('is-open');
-        menuBtn.setAttribute('aria-expanded', isOpen);
+        const isOpen = mobileDropdown.classList.toggle('hidden');
+        menuBtn.setAttribute('aria-expanded', !isOpen);
       });
 
       // Tutup menu saat tautan diklik pada layar kecil
-      mainNav.querySelectorAll('.nav-link').forEach(link => {
+      mobileDropdown.querySelectorAll('.mobile-nav-link').forEach(link => {
         link.addEventListener('click', () => {
-          mainNav.classList.remove('is-open');
+          mobileDropdown.classList.add('hidden');
           menuBtn.setAttribute('aria-expanded', 'false');
         });
       });
     }
-
-    // Indikator tautan aktif saat scroll (Smooth active link)
-    const sections = document.querySelectorAll('section[id], footer[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    window.addEventListener('scroll', () => {
-      let current = '';
-      const scrollPos = window.pageYOffset + 120;
-
-      sections.forEach(section => {
-        const top = section.offsetTop;
-        const height = section.offsetHeight;
-        if (scrollPos >= top && scrollPos < top + height) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active');
-        }
-      });
-    });
   </script>
 
 </body>
